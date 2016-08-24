@@ -82,7 +82,10 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
-    max-width: 100%;
+    //max-width: 100%;
+    width: 70%;
+    height: auto;
+    padding: 15px 15px 15px 20px;
   }
 
   &>.search {
@@ -429,11 +432,11 @@ html, body {
     }
 
     tr:nth-child(odd)>td {
-      background-color: lighten($main-bg,4.2%);
+      background-color: lighten(#ebebeb,4.2%); //lighten($main-bg,4.2%);
     }
 
     tr:nth-child(even)>td {
-      background-color: lighten($main-bg,2.4%);
+      background-color: lighten(#ebebeb,2.4%); //lighten($main-bg,2.4%);
     }
   }
 
@@ -553,11 +556,11 @@ html, body {
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      border-radius: 5px;
-      padding: $code-annotation-padding;
+      //border-radius: 5px;
+      //padding: $code-annotation-padding;
       color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
+      //border-top: 1px solid #000;
+      //border-bottom: 1px solid #404040;
     }
   }
 }
