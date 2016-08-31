@@ -41,6 +41,7 @@ api = kittn.authorize('meowmeowmeow')
 ```
 
 ```shell
+
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: meowmeowmeow"
@@ -70,6 +71,19 @@ Kittn expects for the API key to be included in all API requests to the server i
 You must replace <code>0000-0000-0000</code> with your personal API key.
 </aside>
 
+
+
+
+
+
+
+
+
+
+
+#Error
+##Error Codes
+##Error Object
 
 
 
@@ -246,28 +260,69 @@ Parameter | Description
 ID | The ID of the kitten to retrieve
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Company
 
 ##Company Object
 
 ```json
-Whatever the object looks like:
 [
   {
-    "firt_name": "Michael",
-    "last_name": "Zane",
-    "email": "michaelz@email.com"
+    "city": "Armonk, New York",
+    "name": "IBM",
+    "zip": "10504",
+    "country": "United States",
+    "industry": "Information Technology and Services",
+    "site": "http://www.ibm.com",
+    "id": "1009",
+    "path": "ibm",
+    "type": "Public Company",
+    "region": "NY",
+    "street_address": [
+      "New Orchard Road",
+      "International Business Machines Corp."
+    ],
+    "size": "10,001+"
   }
 ]
 ```
 
-What is this object used for? Below example of output:
+An company represents the organisation that is being researched. To run the get request the company name needs to be known and an access token needs to be obtained.
 
 Parameter | Description
 --------- | ----------- | -----------
-first_name | **string** <br> First name of audit user.
-last_name | **string** <br> Last name of audit user.
-address | **string** <br> Address for audit user.
+city | **string** <br> The city the company is based in.
+name | **string** <br> Name of company.
+zip | **string** <br> Zip code or post code of company.
+country | **string** <br> The country the company is based in.
+industry | **string** <br> The industry the company operates in.
+site | **string** <br> Company home website.
+id | **integer** <br> Numerical company id.
+path | **string** <br> Path name for the company. 
+type | **string** <br> The type of business entity such as public comapny, limited comapany etc.
+region | **string** <br> The region the company head quaters are located at.
+street address | **string** <br> Address of the company head quaters.
+size | **string** <br> Size braket for the company, which determines how many people are employed by the comapny.
+
+
+
 
 ##Get By Name
 
@@ -303,16 +358,21 @@ let kittens = api.kittens.get();
 ```json
 [
   {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
+    "city": "Armonk, New York",
+    "name": "IBM",
+    "zip": "10504",
+    "country": "United States",
+    "industry": "Information Technology and Services",
+    "site": "http://www.ibm.com",
+    "id": "1009",
+    "path": "ibm",
+    "type": "Public Company",
+    "region": "NY",
+    "street_address": [
+      "New Orchard Road",
+      "International Business Machines Corp."
+    ],
+    "size": "10,001+"
   }
 ]
 ```
@@ -382,8 +442,10 @@ What is this object used for? Below example of output:
 
 Parameter | Description
 --------- | ----------- | -----------
+id | **string** <br> Numerical id for deadletter.
 source | **string** <br> ???
 type | **string** <br> ???
+at | **integer** <br> ???
 
 ###EMPLOYEE
 
@@ -396,6 +458,11 @@ country | **string** <br> Country of residence of employee.
 organisation | **string** <br> Organisation worked at by employee.
 state | **string** <br> State of residence of employee.
 age | **integer** <br> Age of employee.
+
+
+
+
+
 
 
 ##Get DeadLetter Events
@@ -493,6 +560,11 @@ size | **optional** <br> The number of "people" to retrieve
 
 
 
+
+
+
+
+
 ##Receive DeadLetter Event
 
 ```ruby
@@ -582,28 +654,44 @@ no idea | **required** <br> What are the inputs?
 
 
 
-#Documents
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Documents v1
 
 ##Document Object
 
 ```json
-Whatever the object looks like:
-[
-  {
-    "firt_name": "Michael",
-    "last_name": "Zane",
-    "email": "michaelz@email.com"
-  }
-]
+?? What is this?
 ```
 
-What is this object used for? Below example of output:
+What do we actually get with this? What is a document?
 
 Parameter | Description
 --------- | ----------- | -----------
 first_name | **string** <br> First name of audit user.
 last_name | **string** <br> Last name of audit user.
 address | **string** <br> Address for audit user.
+
+
+
+
+
+
+
+
 
 ##Search Documents (JSON)
 
@@ -637,20 +725,27 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+{
+  "query": {
+    "keywords": [
+      "appoints.chief marketing officer"
+    ],
+    "searchFields": [
+      "abstract"
+    ],
+    "outputFields": [
+      "headline"
+    ],
+    "exclusions": [],
+    "dateFrom": "20.06.2016",
+    "dateTo": "20.08.2016",
+    "annotation": [],
+    "source": [
+      "social"
+    ]
+  },
+  "documents": [??????]
+}
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -664,26 +759,34 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/documents/json?source={source}&accessToken={access_token}`
+`http://api.cognism.io/api/v1/documents/json?keywords={keywords}&fields={fields}&exclusions={exclusions}&outputFields={output_fields}&source={source}&dateFrom={date_from}&dateTo={date_to}&annotation={annotation}&accessToken={access_token}&secretKey={secret_key}`
 
 
 ### Query Parameters
 
 Parameter | Description
 --------- | ----------- | -----------
-keywords | **optional** <br> Keyword(s) (i.e. appoints.chief marketing officer,named.chief marketing officer)
-fields | **optional** <br> Search field(s) (i.e. articleName,subHeadline,abstract)
-exclusions | **optional** <br> Exclusion(s) (i.e. retirement,leaving)
+keywords | **optional** <br> Keywords for the search, such as appoints.chief marketing officer or named.chief marketing officer
+fields | **optional** <br> Search fields such as articleName,subHeadline or abstract
+exclusions | **optional** <br> Exclude words from search such as retirement or leaving
 outputFields | **optional** <br> Output field(s) (i.e. headline,url,abstract)
-source | **required** <br> Document source(s)
-dateFrom | **optional** <br> dd.MM.yyyy
-dateTo | **optional** <br> dd.MM.yyyy
+source | **required** <br> ??
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 annotation | **optional** <br> Annotation (i.e. subject=PER)
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
 
-##Search Documents By Aboutness ??
 
+
+
+
+
+
+
+
+
+##Search Documents By Aboutness
 
 ```ruby
 require 'Company'
@@ -715,20 +818,42 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+{
+  "query": {
+    "keywords": [
+      "Cognism"
+    ],
+    "searchFields": [
+      "articleName",
+      "subHeadline",
+      "abstract"
+    ],
+    "outputFields": [
+      "uid",
+      "eid",
+      "headline",
+      "subHeadline",
+      "abstract",
+      "url",
+      "date",
+      "author",
+      "source",
+      "annotations",
+      "photos",
+      "videos",
+      "entities",
+      "quotations"
+    ],
+    "exclusions": [],
+    "dateFrom": "20.06.2016",
+    "dateTo": "20.08.2016",
+    "annotation": [],
+    "source": [
+      "social"
+    ]
+  },
+  "documents": []
+}
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -742,22 +867,32 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/documents/org/{org}?dateFrom={date_from}&dateTo={date_to}&aboutness={aboutness}&page=1&count={count}&accessToken={access_token}`
+`http://api.cognism.io/api/v1/documents/org/Cognism?dateFrom={date_from}&dateTo={date_to}&source={source}&aboutness={aboutness}&page={page}&count={count}&accessToken={access_token}&secretKey={secret_key}`
 
 
 ### Query Parameters
 
 Parameter | Description
 --------- | ----------- | -----------
-org | **optional** <br> Organization Name
-dateFrom | **optional** <br> Date From: dd.MM.yyyy
-dateTo | **optional** <br> Date To: dd.MM.yyyy
-source | **optional** <br> Source
-aboutness | **required** <br> Minimum Aboutness Score
-page | **optional** <br> Page
-count | **optional** <br> Page Size
+org | **optional** <br> Organization to search.
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
+source | **optional** <br> ??
+aboutness | **required** <br> Minimum Aboutness Score ???
+page | **optional** <br> ??
+count | **optional** <br> Page Size ??
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
+
+
+
+
+
+
+
+
+
+
 
 
 ##Search Documents (TXT)
@@ -793,20 +928,16 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+Cognism Data Report
+
+Query Parameters:
+  Keywords = appoints.chief marketing officer
+  Search fields = artcleName
+  Exclusions = retirement
+  Date From = 20.06.2016
+  Date To = 20.08.2016
+  Annotation = ArraySeq()
+  Source = social
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -820,22 +951,27 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/documents/txt?source={source}&accessToken={access_token}`
+`http://api.cognism.io/api/v1/documents/txt?keywords={keywords}&fields={fields}&exclusions={exclusions}&source={source}&dateFrom={date_from}&dateTo={date_to}&annotation={annotation}&accessToken={access_token}&secretKey={secret_key}`
 
 
 ### Query Parameters
 
 Parameter | Description
 --------- | ----------- | -----------
-keywords | **optional** <br> Keyword(s) (i.e. appoints.chief marketing officer,named.chief marketing officer)
-fields | **optional** <br> Search field(s) (i.e. articleName,subHeadline,abstract)
-exclusions | **optional** <br> Exclusion(s) (i.e. retirement,leaving)
-source | **required** <br> Document source(s)
-dateFrom | **optional** <br> dd.MM.yyyy
-dateTo | **optional** <br> dd.MM.yyyy
+keywords | **optional** <br> Keywords for the search, such as appoints.chief marketing officer or named.chief marketing officer
+fields | **optional** <br> Search fields such as articleName,subHeadline or abstract
+exclusions | **optional** <br> Exclude words from search such as retirement or leaving
+outputFields | **optional** <br> Output field(s) (i.e. headline,url,abstract)
+source | **required** <br> ??
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 annotation | **optional** <br> Annotation (i.e. subject=PER)
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
+
+
+
+
 
 
 
@@ -871,20 +1007,24 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+Cognism Data Report (DIFF)
+
+Query Parameters:
+  Keywords = appoints.chief marketing officer
+  Search fields = articleName
+  Exclusions = 
+  Date From = 20.06.2016
+  Date To = 20.08.2016
+  Annotation = ArraySeq()
+  Source = social
+Query Parameters:
+  Keywords = chief marketing officer
+  Search fields = subHeadline
+  Exclusions = 
+  Date From = 20.06.2016
+  Date To = 20.08.2016
+  Annotation = ArraySeq()
+  Source = social
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -905,16 +1045,137 @@ GET
 
 Parameter | Description
 --------- | ----------- | -----------
-keywords1 | **optional** <br> Keyword(s) #1 (i.e. appoints.chief marketing officer,named.chief marketing officer)
-keywords2 | **optional** <br> Keyword(s) #2 (i.e. chief marketing officer)
-fields1 | **optional** <br> Search field(s) (i.e. articleName,subHeadline,abstract)
-fields2 | **optional** <br> Search field(s) (i.e. articleName,subHeadline,abstract)
-source | **required** <br> Document source(s)
-dateFrom | **optional** <br> dd.MM.yyyy
-dateTo | **optional** <br> dd.MM.yyyy
+keywords1 | **optional** <br> Keywords for the search, such as appoints.chief marketing officer or named.chief marketing officer
+keywords2 | **optional** <br> Second keyword for the search, such as chief marketing officer
+fields1 | **optional** <br> Search fields such as articleName,subHeadline or abstract
+fields2 | **optional** <br> Search fields such as articleName,subHeadline or abstract
+source | **required** <br> ??
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 annotation | **optional** <br> Annotation (i.e. subject=PER)
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Documents v2
+
+##Document Object
+
+```json
+??? No idea
+```
+
+What will this document really generate?
+
+Parameter | Description
+--------- | ----------- | -----------
+?? | **string** <br> First name of audit user.
+?? | **string** <br> Last name of audit user.
+?? | **string** <br> Address for audit user.
+
+
+
+
+
+
+
+
+##Search Documents by Entities
+
+```ruby
+require 'Company'
+
+api = Company::APIClient.authorize!('0000-0000-0000')
+api.company.find('cognism')
+```
+
+```python
+import comp
+
+api = comp.authorize('0000-0000-0000')
+api.Company.find('cognism')
+```
+
+```shell
+$ curl http://api.cognism.io/api/v1/company/cognism \
+  -H "Authorization: Access Token"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
+
+> **RESPONSE EXAMPLE**  
+
+
+```json
+Cognism Data Report
+
+Query Parameters:
+  Keywords = ORGANIZATION:Cognism
+  Search fields = body
+  Exclusions = None
+  Date From = 20.05.2016
+  Date To = 20.08.2016
+  Annotation = All
+  Source = social
+```
+
+What documents? Who can access what? Any other info on docs? 
+
+This endpoint retrieves what information in the docs??
+
+
+### HTTP Request
+
+<aside class="success">
+GET
+</aside>
+
+`http://api.cognism.io/api/v2/documents/search?dateFrom={date_from}&dateTo={date_to}&tag={tag}&term={term}&source={source}&aboutness={aboutness}&page={page}&count={count}&accessToken={access_token}&secretKey={security_key}`
+
+
+
+### Query Parameters
+
+Parameter | Description
+--------- | ----------- | -----------
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
+tag | **optional** <br> Search by tags: ORGANIZATION, PERSON or LOCATION
+term | **optional** <br> Search term
+source | **required** <br> ??
+aboutness | **required** <br> ??
+page | **required** <br> ??
+count | **required** <br> Page size.
+accessToken | **required** <br> Access Token
+secretKey | **optional** <br> Secret Key
+
+
+
+
 
 
 
@@ -1023,21 +1284,23 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/events/stream?enrich={true/false}`
+`http://api.cognism.io/api/v1/events/stream?dateFrom={date_from}&dateTo={date_to}&rule={query_rule}&page={page}&count={count}&enrich={true/false}`
 
 
 ### Query Parameters
 
 Parameter | Description
 --------- | ----------- | -----------
-dateFrom | **optional** <br> dd.MM.yyyy
-dateTo | **optional** <br> dd.MM.yyyy
-rule | **optional** <br> Query rule (e.g. type=job-join|job-leave;org=IBM;employee.title=valuelist(mediaradar-jobtitle) ).
-page | **optional** <br> From index to start the search from. Defaults to 0.
-count | **optional** <br> The number of search hits to return. Defaults to 50.
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
+rule | **optional** <br> Query rule such as type=job-join|job-leave;org=IBM;employee.title=valuelist(mediaradar-jobtitle)
+page | **optional** <br> From index to start the search from. Defaults to 0. ???
+count | **optional** <br> The number of search hits to return. Defaults to 50.  ???
 enrich | **optional** <br> Enrich events with custom data. Choose either true or false. The default value is true.
 X-API-AccessToken | **required** <br> Access Token
 X_API-SecretKey | **optional** <br> Secret Key
+
+
 
 
 
@@ -1103,21 +1366,24 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/events/stream/csv?count={count}&accessToken={access_token}&enrich={true/false}`
+`http://api.cognism.io/api/v1/events/stream/csv?dateFrom={date_from}&dateTo={date_to}&rule={query_rule}&page={page}&count={count}&accessToken={access_token}&secretKey={secret_key}&enrich={true/false}`
 
 
 ### Query Parameters
 
 Parameter | Description
 --------- | ----------- | -----------
-dateFrom | **optional** <br> dd.MM.yyyy
-dateTo | **optional** <br> dd.MM.yyyy
-rule | **optional** <br> Query rule (e.g. type=job-join|job-leave;org=IBM;employee.title=valuelist(mediaradar-jobtitle) ).
-page | **optional** <br> From index to start the search from. Defaults to 0.
-count | **optional** <br> The number of search hits to return. Defaults to 50.
+dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
+dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
+rule | **optional** <br> Query rule such as type=job-join|job-leave;org=IBM;employee.title=valuelist(mediaradar-jobtitle)
+page | **optional** <br> From index to start the search from. Defaults to 0. ???
+count | **optional** <br> The number of search hits to return. Defaults to 50.  ???
 enrich | **optional** <br> Enrich events with custom data. Choose either true or false. The default value is true.
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
+
+
+
 
 
 
@@ -1186,7 +1452,7 @@ This endpoint retrieves what information in the docs??
 POST
 </aside>
 
-`http://api.cognism.io/api/v1/events/stream/search?accessToken={access_token}`
+`http://api.cognism.io/api/v1/events/stream/search?accessToken={access_token}&secretKey={secret_key}`
 
 
 ### Query Parameters
@@ -1224,28 +1490,136 @@ phase | **required** <br> ??
 
 
 
+
+
 #Person
 
 ##Person Object
 
 ```json
-Whatever the object looks like:
-[
-  {
-    "firt_name": "Michael",
-    "last_name": "Zane",
-    "email": "michaelz@email.com"
-  }
-]
+{
+  "city": "London",
+  "vc": 1463147456,
+  "ver": 1,
+  "groups": [
+    "Women @ IBM",
+    "Big Data, Analytics, Hadoop, NoSQL & Cloud Computing",
+    "IBM Ecosystem ISV and MSP"
+  ],
+  "cc": "uk",
+  "country": "United Kingdom",
+  "experience": [
+    {
+      "company": "IBM",
+      "from": "September 2015",
+      "description": "Technical sales and solutions specialist working with clients across the UK and Europe on Big Data platforms including hadoop, data warehousing, analytics, managed services and streaming analytics.",
+      "name": "Big Data and Hadoop Technical Sales Specialist"
+    },
+    {
+      "to": "September 2015",
+      "company": "IBM",
+      "from": "January 2015",
+      "description": "Big Data technical sales within IBM Analytics Platform.",
+      "name": "Big Data Technical Sales Specialist"
+    }
+  ],
+  "current": "IBM",
+  "skills": [
+    "Data Management",
+    "Teamwork",
+    "Big Data"
+  ],
+  "state": "Hampshire",
+  "certifications": [
+    {
+      "company": "IBM",
+      "from": "October 2015",
+      "name": "IBM PureData System for Analytics Technical Professional V1"
+    }
+  ],
+  "birth_date": 662688000,
+  "full_name": "Mary Mitchell",
+  "topcard": {
+    "current": [
+      "IBM"
+    ],
+    "locality": "Hursley, Hampshire, United Kingdom",
+    "headline": "Big Data and Hadoop Technical Specialist at IBM Analytics",
+    "industry": "Information Technology and Services",
+    "member-connections": "500+",
+    "full_name": "Mary Mitchell"
+  },
+  "education": [
+    {
+      "to": "2013",
+      "company": "BSc (Hons), Natural Sciences, First Class Honours",
+      "from": "2009",
+      "name": "University of Newcastle"
+    },
+    {
+      "to": "2009",
+      "company": ", A Levels: Physics (A), Chemistry (A), Biology (A), AS Levels: Further Mathematics and Psychology, Grade: 4 As at AS Level, 2 As at A2 Level",
+      "from": "2007",
+      "name": "Matwell School"
+    }
+  ],
+  "full_name_normalized": "mary mitchell",
+  "uid": "marymitchell"
+}
 ```
 
 What is this object used for? Below example of output:
 
 Parameter | Description
 --------- | ----------- | -----------
-first_name | **string** <br> First name of audit user.
-last_name | **string** <br> Last name of audit user.
-address | **string** <br> Address for audit user.
+city | **string** <br> The city the person's work is located at.
+vc | **integer** <br> ??
+ver | **integer** <br> ??
+groups | **string** <br> List of groups that the person is a member of.
+cc | **string** <br> ??
+country | **string** <br> The country the person is based at.
+current | **string** <br> Name of current employer.
+skills | **string** <br> List of skills this person has.
+state | **string** <br> The state or provnce this person is based in.
+birth date | **integer** <br> Person's date of birth.
+fullname | **string** <br> Person's fullname.
+topcard | **string** <br> Overview of the person's current situation.
+fullname normalized | **string** <br> ??
+uid | **string** <br> persons user id
+
+EXPERIENCE
+
+Parameter | Description
+--------- | ----------- | -----------
+to | **integer** <br> Date the person finished work at the company. Blank if this is the person's current role.
+company | **string** <br> Name of the company that employed the person.
+from | **integer** <br> Date the person started work at the company.
+description | **string** <br> Description of the person's role at the company.
+name | **string** <br> Person's job title in this role.
+
+CERTIFICATIONS
+
+Parameter | Description
+--------- | ----------- | -----------
+to | **integer** <br> End date for finishing the certificate. ??
+company | **string** <br> Name of the company that employed the person.
+from | **integer** <br> Date the person gained the certificate. 
+description | **string** <br> Description of the certificate.
+name | **string** <br> Title of the certificate.
+
+EDUCATION
+
+Parameter | Description
+--------- | ----------- | -----------
+to | **integer** <br> Date the person finished the program.
+company | **string** <br> Name of the institution that provided the education.
+from | **integer** <br> Date the program started.
+description | **string** <br> Description of the educational program.
+name | **string** <br> Name of the educational program.
+
+
+
+
 
 
 
@@ -1284,25 +1658,69 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+{
+  "items": [
+    {
+      "city": "London",
+      "vc": 1463147456,
+      "ver": 1,
+      "groups": [
+        "Women @ IBM",
+        "Big Data, Analytics, Hadoop, NoSQL & Cloud Computing",
+        "IBM Ecosystem ISV and MSP"
+      ],
+      "cc": "uk",
+      "country": "United Kingdom",
+      "experience": [
+        {
+          "company": "IBM",
+          "from": "September 2015",
+          "description": "Technical sales and solutions specialist working with clients across the UK and Europe on Big Data platforms including hadoop, data warehousing, analytics, managed services and streaming analytics.",
+          "name": "Big Data and Hadoop Technical Sales Specialist"
+        }
+      ],
+      "current": "IBM",
+      "skills": [
+        "Data Management",
+        "Teamwork",
+        "Big Data"
+      ],
+      "state": "Hampshire",
+      "certifications": [
+        {
+          "company": "IBM",
+          "from": "October 2015",
+          "name": "IBM PureData System for Analytics Technical Professional V1"
+        }
+      ],
+      "birth_date": 662688000,
+      "full_name": "Mary Mitchell",
+      "topcard": {
+        "current": [
+          "IBM"
+        ],
+        "locality": "Hursley, Hampshire, United Kingdom",
+        "headline": "Big Data and Hadoop Technical Specialist at IBM Analytics",
+        "industry": "Information Technology and Services",
+        "member-connections": "500+",
+        "full_name": "Mary Mitchell"
+      },
+      "education": [
+        {
+          "to": "2013",
+          "company": "BSc (Hons), Natural Sciences, First Class Honours",
+          "from": "2009",
+          "name": "University of Newcastle"
+        }
+      ],
+      "full_name_normalized": "mary mitchell",
+      "uid": "marymitchell"
+    }
+  ]
+}
 ```
 
-What documents? Who can access what? Any other info on docs? 
-
-This endpoint retrieves what information in the docs??
+This API find information about a specific person. THe search can be defined by a first name, last name or a company name. The response returns information about the person's employment history as well as their skills, certifications and education.
 
 
 ### HTTP Request
@@ -1311,18 +1729,26 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/person`
+`http://api.cognism.io/api/v1/person?firstName={first_name}&lastName={last_name}&company={company}`
 
 
 ### Query Parameters
 
 Parameter | Description
 --------- | ----------- | -----------
-firstName | **optional** <br> Person's first name.
-lastName | **optional** <br> Person's last name.
-company | **optional** <br> The company the person works in.
+firstName | **optional** <br> First name of person to search.
+lastName | **optional** <br> Last name of person to search.
+company | **optional** <br> The company the person works at.
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **optional** <br> Secret Key
+
+
+
+
+
+
+
+
 
 
 
@@ -1343,29 +1769,462 @@ X-API-SecretKey | **optional** <br> Secret Key
 ##Subscription Object
 
 ```json
-Whatever the object looks like:
-[
-  {
-    "firt_name": "Michael",
-    "last_name": "Zane",
-    "email": "michaelz@email.com"
-  }
-]
+{
+  "_id": "9d363669-c334-4307-8c62-5cf1fc49e28b",
+  "idUser": "2280",
+  "idOrg": "2",
+  "name": "mysubscription",
+  "pattern": {
+    "type": "310",
+    "org": "IBM"
+  },
+  "callback-http": {
+    "method": "POST",
+    "url": "https://www.??",
+    "headers": [
+      "articles"
+    ]
+  },
+  "active": false,
+  "createdAt": 1472649167365,
+  "updatedAt": 1472649167365
+}
 ```
 
 What is this object used for? Below example of output:
 
 Parameter | Description
 --------- | ----------- | -----------
-first_name | **string** <br> First name of audit user.
-last_name | **string** <br> Last name of audit user.
-address | **string** <br> Address for audit user.
+_id | **required** <br> Id of subscription.
+idUser | **required** <br> Id of the user - what user?
+idOrg | **required** <br> Id of the organisation - what org?
+name | **required** <br> ??
+active | **required** <br> ??
+created at | **required** <br> When the subscription was created.
+updated at | **required** <br> When the subsription was last modified.
 
-##Get Subsrciptions
+PATTERN
+Parameter | Description
+--------- | ----------- | -----------
+type | **required** <br> Company type code?? - looks like a type code for an org
+org | **required** <br> Name of what org?
+
+CALLBACK HTTP
+Parameter | Description
+--------- | ----------- | -----------
+method | **required** <br> Callback method, e.g. POST
+url | **required** <br> ??
+headers | **required** <br> e.g. string
+
+
+
+
+
+
+
+##Get All Subsrciptions
+```ruby
+require 'Company'
+
+api = Company::APIClient.authorize!('0000-0000-0000')
+api.company.find('cognism')
+```
+
+```python
+import comp
+
+api = comp.authorize('0000-0000-0000')
+api.Company.find('cognism')
+```
+
+```shell
+$ curl http://api.cognism.io/api/v1/company/cognism \
+  -H "Authorization: Access Token"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
+
+> **RESPONSE EXAMPLE**  
+
+
+```json
+[
+  {
+    "_id": "9d363669-c334-4307-8c62-5cf1fc49e28b",
+    "idUser": "2280",
+    "idOrg": "2",
+    "name": "mysubscription",
+    "pattern": {
+      "type": "310",
+      "org": "IBM"
+    },
+    "callback-http": {
+      "method": "POST",
+      "url": "https://www.??",
+      "headers": [
+        "articles"
+      ]
+    },
+    "active": false,
+    "createdAt": 1472649167365,
+    "updatedAt": 1472649167365
+  }
+]
+```
+
+Get all subscriptions that have been created for the account. This request only requires the authentification token and gives a list of the current subscriptions.
+
+
+### HTTP Request
+
+<aside class="success">
+GET
+</aside>
+
+`http://api.cognism.io/api/v1/subscription`
+
+
+### Query Parameters
+
+Parameter | Description
+--------- | ----------- | -----------
+X-API -AccessToken | **required** <br> Access Token
+X-API-SecretKey | **required** <br> Secret Key
+
+
+
+
+
+
+
+
+
+
+
+
 ##Create Subscription
+
+```ruby
+audit_hash = {
+  action: "string",
+  source: "string",
+  data: 1
+  }]
+}
+
+api.audit.create(audit_hash)
+```
+
+```python
+audit_details = {
+  action: "string",
+  source: "string",
+  data: 1
+}
+
+api.Audit.create(audit_details)
+```
+
+```shell
+
+  $ curl http://api.cognism.io/api/v1/audit/user?accessToken=0000-0000-0000 \
+  -d 'action=String' \
+  -d 'source=String' \
+  -d 'data=1' \
+```
+
+> **RESPONSE EXAMPLE**  
+
+
+```json
+{
+  "_id": "9d363669-c334-4307-8c62-5cf1fc49e28b",
+  "idUser": "2280",
+  "idOrg": "2",
+  "name": "mysubsription",
+  "pattern": {
+    "type": "310",
+    "org": "IBM"
+  },
+  "callback-http": {
+    "method": "POST",
+    "url": "https://www.???",
+    "headers": [
+      "articles"
+    ]
+  },
+  "active": false,
+  "createdAt": 1472649167365,
+  "updatedAt": 1472649167365
+}
+```
+
+Create a subsriction. 
+
+
+### HTTP Request
+
+<aside class="success">
+POST
+</aside>
+
+`http://api.cognism.io/api/v1/subscription`
+
+
+### Query Parameters
+
+Parameter | Description
+--------- | ----------- | -----------
+X-API -AccessToken | **required** <br> Access Token
+X-API-SecretKey | **required** <br> Secret Key
+name | **required** <br> Name of who?
+active | **required** <br> Person is active?
+
+PATTERN
+Parameter | Description
+--------- | ----------- | -----------
+type | **required** <br> Company type code?? - looks like a type code for an org
+org | **required** <br> Name of what org?
+
+CALLBACK HTTP
+Parameter | Description
+--------- | ----------- | -----------
+method | **required** <br> Callback method, e.g. POST
+url | **required** <br> ??
+headers | **required** <br> e.g. string
+
+
+
+
+
+
+
+
+
 ##Delete Subscription
-##Get Subscriptions ?? too similar to before
-##Create Subscription
+
+```ruby
+audit_hash = {
+  action: "string",
+  source: "string",
+  data: 1
+  }]
+}
+
+api.audit.create(audit_hash)
+```
+
+```python
+audit_details = {
+  action: "string",
+  source: "string",
+  data: 1
+}
+
+api.Audit.create(audit_details)
+```
+
+```shell
+
+  $ curl http://api.cognism.io/api/v1/audit/user?accessToken=0000-0000-0000 \
+  -d 'action=String' \
+  -d 'source=String' \
+  -d 'data=1' \
+```
+
+> **RESPONSE EXAMPLE**  
+
+
+```json
+[]
+```
+
+Delete any subscription that has been previously created. The id of the subscription is required for this action.
+
+
+### HTTP Request
+
+<aside class="success">
+DELETE
+</aside>
+
+`http://api.cognism.io/api/v1/subscription/{subscription_id}`
+
+
+### Query Parameters
+
+Parameter | Description
+--------- | ----------- | -----------
+id | **required** <br> Id of the subscription to be deleted.
+X-API -AccessToken | **required** <br> Access Token
+X-API-SecretKey | **required** <br> Secret Key
+
+
+
+
+
+
+
+
+
+
+##Get Subscription
+```ruby
+require 'Company'
+
+api = Company::APIClient.authorize!('0000-0000-0000')
+api.company.find('cognism')
+```
+
+```python
+import comp
+
+api = comp.authorize('0000-0000-0000')
+api.Company.find('cognism')
+```
+
+```shell
+$ curl http://api.cognism.io/api/v1/company/cognism \
+  -H "Authorization: Access Token"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
+
+> **RESPONSE EXAMPLE**  
+
+
+```json
+{
+  "_id": "3ea44571-9358-4604-addf-0d43b61e22a3",
+  "idUser": "2280",
+  "idOrg": "2",
+  "name": "mysubscription",
+  "pattern": {
+    "type": "310",
+    "org": "IBM"
+  },
+  "callback-http": {
+    "method": "POST",
+    "url": "https://www.??",
+    "headers": [
+      "articles"
+    ]
+  },
+  "active": false,
+  "createdAt": 1472649847431,
+  "updatedAt": 1472649847431
+}
+```
+
+Get details of a specific subscription. The id of the subscription is required. To find a list of all subscriptions, see "Get All Subsrciptions"
+
+
+### HTTP Request
+
+<aside class="success">
+GET
+</aside>
+
+`http://api.cognism.io/api/v1/subscription/{subscription_id}`
+
+
+### Query Parameters
+
+Parameter | Description
+--------- | ----------- | -----------
+id | **required** <br> Id of the subscription.
+X-API -AccessToken | **required** <br> Access Token
+X-API-SecretKey | **required** <br> Secret Key
+
+
+
+
+
+
+
+##Modify Subscription
+```ruby
+audit_hash = {
+  action: "string",
+  source: "string",
+  data: 1
+  }]
+}
+
+api.audit.create(audit_hash)
+```
+
+```python
+audit_details = {
+  action: "string",
+  source: "string",
+  data: 1
+}
+
+api.Audit.create(audit_details)
+```
+
+```shell
+
+  $ curl http://api.cognism.io/api/v1/audit/user?accessToken=0000-0000-0000 \
+  -d 'action=String' \
+  -d 'source=String' \
+  -d 'data=1' \
+```
+
+> **RESPONSE EXAMPLE**  
+
+
+```json
+no content
+```
+
+Modify a pre-existing subsription. The id of the subscription is needed. All other fields of the subsriction can be modified.
+
+
+### HTTP Request
+
+<aside class="success">
+PUT
+</aside>
+
+`http://api.cognism.io/api/v1/subscription/{subscription_id}`
+
+
+### Query Parameters
+
+Parameter | Description
+--------- | ----------- | -----------
+X-API -AccessToken | **required** <br> Access Token
+X-API-SecretKey | **required** <br> Secret Key
+name | **required** <br> Name of who?
+active | **required** <br> Person is active?
+
+PATTERN
+Parameter | Description
+--------- | ----------- | -----------
+type | **required** <br> Company type code?? - looks like a type code for an org
+org | **required** <br> Name of what org?
+
+CALLBACK HTTP
+Parameter | Description
+--------- | ----------- | -----------
+method | **required** <br> Callback method, e.g. POST
+url | **required** <br> ??
+headers | **required** <br> e.g. string
+
+
+
 
 
 
