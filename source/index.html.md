@@ -31,29 +31,29 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 ```ruby
 require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Kittn::APIClient.authorize!('0000-0000-0000')
 ```
 
 ```python
 import kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize('0000-0000-0000')
 ```
 
 ```shell
 
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: 0000-0000-0000"
 ```
 
 ```javascript
 const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize('0000-0000-0000');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `0000-0000-0000` with your API key.
 
 Cognism uses token keys for authentification. How to get the key? Do we need it for all API requests? Example of what it looks like.
 
@@ -65,7 +65,7 @@ Kittn uses API keys to allow access to the API. You can register a new Kittn API
 
 Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Authorization: 0000-0000-0000`
 
 <aside class="notice">
 You must replace <code>0000-0000-0000</code> with your personal API key.
@@ -111,7 +111,7 @@ Whatever the object looks like:
 What is this object used for? Below example of output:
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 first_name | **string** <br> First name of audit user.
 last_name | **string** <br> Last name of audit user.
 address | **string** <br> Address for audit user.
@@ -193,7 +193,7 @@ POST
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
 action | **required** <br> what is action?
@@ -307,7 +307,7 @@ ID | The ID of the kitten to retrieve
 An company represents the organisation that is being researched. To run the get request the company name needs to be known and an access token needs to be obtained.
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 city | **string** <br> The city the company is based in.
 name | **string** <br> Name of company.
 zip | **string** <br> Zip code or post code of company.
@@ -394,7 +394,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 name | **required** <br> Company name
 X-API-AccessToken | **required** <br> Access Token
 X-API-AccessToken | **optional** <br> Secret Key
@@ -441,7 +441,7 @@ X-API-AccessToken | **optional** <br> Secret Key
 What is this object used for? Below example of output:
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 id | **string** <br> Numerical id for deadletter.
 source | **string** <br> ???
 type | **string** <br> ???
@@ -450,7 +450,7 @@ at | **integer** <br> ???
 ###EMPLOYEE
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 name | **string** <br> Name of employee.
 title | **string** <br> Job title of emplyee.
 url | **string** <br> Emplyee's LinkdIn profile? Or URL where found?
@@ -554,7 +554,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 page | **optional** <br> What is this page??
 size | **optional** <br> The number of "people" to retrieve
 
@@ -640,7 +640,7 @@ POST
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 no idea | **required** <br> What are the inputs?
 
 
@@ -680,7 +680,7 @@ no idea | **required** <br> What are the inputs?
 What do we actually get with this? What is a document?
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 first_name | **string** <br> First name of audit user.
 last_name | **string** <br> Last name of audit user.
 address | **string** <br> Address for audit user.
@@ -765,7 +765,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 keywords | **optional** <br> Keywords for the search, such as appoints.chief marketing officer or named.chief marketing officer
 fields | **optional** <br> Search fields such as articleName,subHeadline or abstract
 exclusions | **optional** <br> Exclude words from search such as retirement or leaving
@@ -873,7 +873,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 org | **optional** <br> Organization to search.
 dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
 dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
@@ -957,7 +957,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 keywords | **optional** <br> Keywords for the search, such as appoints.chief marketing officer or named.chief marketing officer
 fields | **optional** <br> Search fields such as articleName,subHeadline or abstract
 exclusions | **optional** <br> Exclude words from search such as retirement or leaving
@@ -1044,7 +1044,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 keywords1 | **optional** <br> Keywords for the search, such as appoints.chief marketing officer or named.chief marketing officer
 keywords2 | **optional** <br> Second keyword for the search, such as chief marketing officer
 fields1 | **optional** <br> Search fields such as articleName,subHeadline or abstract
@@ -1087,7 +1087,7 @@ secretKey | **optional** <br> Secret Key
 What will this document really generate?
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 ?? | **string** <br> First name of audit user.
 ?? | **string** <br> Last name of audit user.
 ?? | **string** <br> Address for audit user.
@@ -1161,7 +1161,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
 dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 tag | **optional** <br> Search by tags: ORGANIZATION, PERSON or LOCATION
@@ -1215,7 +1215,7 @@ Whatever the object looks like:
 What is this object used for? Below example of output:
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 first_name | **string** <br> First name of audit user.
 last_name | **string** <br> Last name of audit user.
 address | **string** <br> Address for audit user.
@@ -1290,7 +1290,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
 dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 rule | **optional** <br> Query rule such as type=job-join|job-leave;org=IBM;employee.title=valuelist(mediaradar-jobtitle)
@@ -1372,7 +1372,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
 dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 rule | **optional** <br> Query rule such as type=job-join|job-leave;org=IBM;employee.title=valuelist(mediaradar-jobtitle)
@@ -1458,7 +1458,7 @@ POST
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
 dateFrom | **optional** <br> dd.MM.yyyy
@@ -1571,7 +1571,7 @@ phase | **required** <br> ??
 What is this object used for? Below example of output:
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 city | **string** <br> The city the person's work is located at.
 vc | **integer** <br> ??
 ver | **integer** <br> ??
@@ -1590,7 +1590,7 @@ uid | **string** <br> persons user id
 EXPERIENCE
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 to | **integer** <br> Date the person finished work at the company. Blank if this is the person's current role.
 company | **string** <br> Name of the company that employed the person.
 from | **integer** <br> Date the person started work at the company.
@@ -1600,7 +1600,7 @@ name | **string** <br> Person's job title in this role.
 CERTIFICATIONS
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 to | **integer** <br> End date for finishing the certificate. ??
 company | **string** <br> Name of the company that employed the person.
 from | **integer** <br> Date the person gained the certificate. 
@@ -1610,7 +1610,7 @@ name | **string** <br> Title of the certificate.
 EDUCATION
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 to | **integer** <br> Date the person finished the program.
 company | **string** <br> Name of the institution that provided the education.
 from | **integer** <br> Date the program started.
@@ -1735,7 +1735,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 firstName | **optional** <br> First name of person to search.
 lastName | **optional** <br> Last name of person to search.
 company | **optional** <br> The company the person works at.
@@ -1794,7 +1794,7 @@ X-API-SecretKey | **optional** <br> Secret Key
 What is this object used for? Below example of output:
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 _id | **required** <br> Id of subscription.
 idUser | **required** <br> Id of the user - what user?
 idOrg | **required** <br> Id of the organisation - what org?
@@ -1804,14 +1804,16 @@ created at | **required** <br> When the subscription was created.
 updated at | **required** <br> When the subsription was last modified.
 
 PATTERN
+
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 type | **required** <br> Company type code?? - looks like a type code for an org
 org | **required** <br> Name of what org?
 
 CALLBACK HTTP
+
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 method | **required** <br> Callback method, e.g. POST
 url | **required** <br> ??
 headers | **required** <br> e.g. string
@@ -1892,7 +1894,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **required** <br> Secret Key
 
@@ -1979,21 +1981,23 @@ POST
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **required** <br> Secret Key
 name | **required** <br> Name of who?
 active | **required** <br> Person is active?
 
 PATTERN
+
 Parameter | Description
---------- | ----------- | -----------
+--------- | -----------
 type | **required** <br> Company type code?? - looks like a type code for an org
 org | **required** <br> Name of what org?
 
 CALLBACK HTTP
+
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 method | **required** <br> Callback method, e.g. POST
 url | **required** <br> ??
 headers | **required** <br> e.g. string
@@ -2041,7 +2045,7 @@ api.Audit.create(audit_details)
 
 
 ```json
-[]
+no content
 ```
 
 Delete any subscription that has been previously created. The id of the subscription is required for this action.
@@ -2059,7 +2063,7 @@ DELETE
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 id | **required** <br> Id of the subscription to be deleted.
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **required** <br> Secret Key
@@ -2141,7 +2145,7 @@ GET
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 id | **required** <br> Id of the subscription.
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **required** <br> Secret Key
@@ -2204,24 +2208,32 @@ PUT
 ### Query Parameters
 
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **required** <br> Secret Key
 name | **required** <br> Name of who?
 active | **required** <br> Person is active?
 
 PATTERN
+
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 type | **required** <br> Company type code?? - looks like a type code for an org
 org | **required** <br> Name of what org?
 
 CALLBACK HTTP
+
 Parameter | Description
---------- | ----------- | -----------
+--------- | ----------- 
 method | **required** <br> Callback method, e.g. POST
 url | **required** <br> ??
 headers | **required** <br> e.g. string
+
+
+
+
+
+
 
 
 
@@ -2329,7 +2341,8 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/websocket`
+`http://api.cognism.io/api/v1/websocket?accessToken={access_token}&secretKey={secret_key}&pattern={pattern}
+`
 
 
 ### Query Parameters
@@ -2410,7 +2423,7 @@ This endpoint retrieves what information in the docs??
 POST
 </aside>
 
-`http://api.cognism.io/api/v1/websocket/session`
+`http://api.cognism.io/api/v1/websocket/session?session={session}`
 
 
 ### Query Parameters
