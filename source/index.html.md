@@ -1426,9 +1426,7 @@ For a classic subscription (not websocket) you need to provide callback webservi
 Parameter | Description
 --------- | ----------- 
 _id | **required** <br> Id of subscription.
-idUser | **required** <br> Id of the user - what user?
-idOrg | **required** <br> Id of the organisation - what org?
-name | **required** <br> ??
+name | **required** <br> Customer defined name of subscription.
 active | **required** <br> Is the subscription active. Boolean value with options true or false.
 created at | **required** <br> UNIX number indicating the time the subscription was created.
 updated at | **required** <br> UNIX number indicating the time the subscription was last modified.
