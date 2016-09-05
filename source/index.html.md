@@ -252,17 +252,76 @@ X-API-AccessToken | **optional** <br> Secret Key
 ##Document Object
 
 ```json
-?? What is this?
+{
+      "uid": 1296861,
+      "eid": "9028205",
+      "headline": "Nexen Tire Supplies Original Equipment Tires for the Porsche Cayenne",
+      "subHeadline": "-- Nexen Tire's N'FERA RU1 selected as original equipment tires for the Porsche Cayenne - it is the tire manufacturer's first time supplying to Porsche.",
+      "abstract": "<p>SEOUL, South Korea, Sept. 4, 2016 /PRNewswire/ -- Nexen Tire, a leading global tire manufacturer, announced that it will supply the Porsche Cayenne with its N'FERA RU1 255/55R18 109Y XL as original equipment (OE) tires.</p>",
+      "url": "http://www.prnewswire.com/news-releases/nexen-tire-supplies-original-equipment-tires-for-the-porsche-cayenne-300322435.html",
+      "date": "05.09.2016",
+      "author": "Nexen Tire",
+      "source": "PR Newswire",
+      "annotations": [
+        {
+          "kind": "industry",
+          "label": "AUT"
+        }
+      ],
+      "photos": [
+        "http://photos.prnewswire.com/prnh/20160901/403424"
+      ],
+      "videos": [],
+      "entities": [
+        {
+          "type": "LOCATION",
+          "value": "SEOUL",
+          "relevance": 1
+        },
+        {
+          "type": "ORGANIZATION",
+          "value": "South Korea",
+          "relevance": 0
+        },
+        {
+          "type": "PERSON",
+          "value": "Yangsan",
+          "relevance": 4
+        },
+        {
+          "type": "QUOTE",
+          "value": "We are thrilled to supply original equipment tires for Porsche for the first time",
+          "relevance": 1
+        }
+      ],
+      "quotations": [
+        {
+          "speakerName": "Travis Kang",
+          "speakerTitle": "Chief Executive Officer",
+          "speakerOrganization": "Nexen",
+          "quotation": "As Porsche is a representative luxury carmaker with prestigious design and performance, this approval for the Porsche Cayenne proves the superior quality and advanced-technology of our products ."
+        }
+      ]
+    }
 ```
 
 What do we actually get with this? What is a document?
 
 Parameter | Description
 --------- | ----------- 
-first_name | **string** <br> First name of audit user.
-last_name | **string** <br> Last name of audit user.
+headLine | **string** <br> First name of audit user.
+subHeadline | **string** <br> Last name of audit user.
 address | **string** <br> Address for audit user.
-
+abstract | **string** <br> Article abstract, commonly a short summary of text.
+url | **string** <br> Source URL for article.
+date | **string** <br> Date the article was published.
+author | **string** <br> Author of the article.
+source  | **string** <br> Data source such as PR Newswire, Financial Times or Associated Press.
+annotations | **string** <br> Document metadata such as subject of the article e.g. subject=PER
+photos | **string** <br> Photo links in article.
+videos | **string** <br> Video links in article.
+entities | **string** <br> Entities mentioned in article such as locations, organizations, people or quotes.
+quotations | **string** <br> Information about quotes present in articles.
 
 
 
@@ -306,23 +365,99 @@ let kittens = api.kittens.get();
 {
   "query": {
     "keywords": [
-      "appoints.chief marketing officer"
+      "marketing"
     ],
     "searchFields": [
+      "articleName",
+      "subHeadline",
       "abstract"
     ],
     "outputFields": [
-      "headline"
+      "uid",
+      "eid",
+      "headline",
+      "subHeadline",
+      "abstract",
+      "url",
+      "date",
+      "author",
+      "source",
+      "annotations",
+      "photos",
+      "videos",
+      "entities",
+      "quotations"
     ],
     "exclusions": [],
-    "dateFrom": "20.06.2016",
-    "dateTo": "20.08.2016",
+    "dateFrom": "05.09.2016",
+    "dateTo": "05.09.2016",
     "annotation": [],
     "source": [
-      "social"
+      "PR Newswire"
     ]
   },
-  "documents": [??????]
+  "documents": [
+    {
+      "uid": 1296861,
+      "eid": "9028205",
+      "headline": "Nexen Tire Supplies Original Equipment Tires for the Porsche Cayenne",
+      "subHeadline": "-- Nexen Tire's N'FERA RU1 selected as original equipment tires for the Porsche Cayenne - it is the tire manufacturer's first time supplying to Porsche. -- For Nexen Tire supplying Porsche proves the tire's superior quality and advanced-technology. -- By taking this momentum as a great opportunity, the company will strengthen the brand value through various premium marketing activities",
+      "abstract": "<p>SEOUL, South Korea, Sept. 4, 2016 /PRNewswire/ -- Nexen Tire, a leading global tire manufacturer, announced that it will supply the Porsche Cayenne with its N'FERA RU1 255/55R18 109Y XL as original equipment (OE) tires. This is the first time that Nexen Tire is supplying its original equipment tires to any of the Porsche car models.</p>",
+      "url": "http://www.prnewswire.com/news-releases/nexen-tire-supplies-original-equipment-tires-for-the-porsche-cayenne-300322435.html",
+      "date": "05.09.2016",
+      "author": "Nexen Tire",
+      "source": "PR Newswire",
+      "annotations": [
+        {
+          "kind": "industry",
+          "label": "AUT"
+        },
+        {
+          "kind": "industry",
+          "label": "TRN"
+        },
+        {
+          "kind": "industry",
+          "label": "TRT"
+        }
+      ],
+      "photos": [
+        "http://photos.prnewswire.com/prnh/20160901/403424",
+        "http://photos.prnewswire.com/prnh/20160901/403424"
+      ],
+      "videos": [],
+      "entities": [
+        {
+          "type": "LOCATION",
+          "value": "SEOUL",
+          "relevance": 1
+        },
+        {
+          "type": "ORGANIZATION",
+          "value": "South Korea",
+          "relevance": 0
+        },
+        {
+          "type": "PERSON",
+          "value": "Yangsan",
+          "relevance": 4
+        },
+        {
+          "type": "QUOTE",
+          "value": "We are thrilled to supply original equipment tires for Porsche for the first time",
+          "relevance": 1
+        }
+      ],
+      "quotations": [
+        {
+          "speakerName": "Travis Kang",
+          "speakerTitle": "Chief Executive Officer",
+          "speakerOrganization": "Nexen",
+          "quotation": "As Porsche is a representative luxury carmaker with prestigious design and performance, this approval for the Porsche Cayenne proves the superior quality and advanced-technology of our products ."
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -348,15 +483,12 @@ keywords | **optional** <br> Keywords for the search, such as marketing, appoint
 fields | **optional** <br> Search fields such as articleName,subHeadline or abstract
 exclusions | **optional** <br> Exclude words from search such as retirement or leaving
 outputFields | **optional** <br> Output field(s) (i.e. headline,url,abstract)
-source | **required** <br> Data source such as social.
+source | **required** <br> Data source such as PR Newswire, Financial Times or Associated Press.
 dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
 dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 annotation | **optional** <br> Document metadata such as subject of the article e.g. subject=PER
 accessToken | **required** <br> Access Token
 secretKey | **optional** <br> Secret Key
-
-
-
 
 
 
@@ -404,13 +536,35 @@ let kittens = api.kittens.get();
 Cognism Data Report
 
 Query Parameters:
-  Keywords = appoints.chief marketing officer
-  Search fields = artcleName
-  Exclusions = retirement
+  Keywords = marketing
+  Search fields = articleName, subHeadline, abstract
+  Exclusions = 
   Date From = 20.06.2016
   Date To = 20.08.2016
-  Annotation = ArraySeq()
-  Source = social
+  Annotation = List()
+  Source = Financial Times
+
+  [1] Dentsu strikes $1.5bn deal for US digital marketing firm
+EID: f995dd4a-5d44-11e6-bb77-a121aa8abd95 | UID: 1271176 | Date: 08.08.2016 | Author: Arash Massoudi | Source: Financial Times
+URL: http://www.ft.com/cms/s/0/f995dd4a-5d44-11e6-bb77-a121aa8abd95.html
+
+Annotations:
+  genre => News
+  section => US & Canada
+  section => Media
+
+Named Entities:
+  LOCATION=UK (1.0)
+  LOCATION=Silicon Valley (1.0)
+  PERSON=Lazard (1.0)
+  PERSON=David Williams (1.0)
+  ORGANIZATION=Dentsu Aegis Network (1.0)
+  ORGANIZATION=Evercore Partners (1.0)
+  LOCATION=Merkle (3.0)
+  PERSON=Merkle (4.0)
+
+Quotations:
+  Jerry Buhlmann (Chief Executive Officer) @ Dentsu Aegis Network => We are more about reaching the people you don’t know and they are all about reaching people you do
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -435,7 +589,7 @@ keywords | **optional** <br> Keywords for the search, such as appoints.chief mar
 fields | **optional** <br> Search fields such as articleName,subHeadline or abstract
 exclusions | **optional** <br> Exclude words from search such as retirement or leaving
 outputFields | **optional** <br> Output field(s) (i.e. headline,url,abstract)
-source | **required** <br> Data source such as social.
+source | **required** <br> Data source such as PR Newswire, Financial Times or Associated Press.
 dateFrom | **optional** <br> Limit search by start date, dd.MM.yyyy
 dateTo | **optional** <br> Limit search by end date, dd.MM.yyyy
 annotation | **optional** <br> Document metadata such as subject of the article e.g. subject=PER
@@ -1872,26 +2026,8 @@ headers | **required** <br> Headers required for the called webservice.
 
 #Websocket
 
-##Websocket Object
-
-```json
-Whatever the object looks like:
-[
-  {
-    "firt_name": "Michael",
-    "last_name": "Zane",
-    "email": "michaelz@email.com"
-  }
-]
-```
-
 Same as with a subscription but using Websocket technology. Websocket is bi-directional real-time channel through which we can push events, as they're flowing into our system, directly to customer system.
 
-Parameter | Description
---------- | ----------- | -----------
-first_name | **string** <br> First name of audit user.
-last_name | **string** <br> Last name of audit user.
-address | **string** <br> Address for audit user.
 
 
 
@@ -1929,20 +2065,7 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -1956,8 +2079,7 @@ This endpoint retrieves what information in the docs??
 GET
 </aside>
 
-`http://api.cognism.io/api/v1/websocket?accessToken={access_token}&secretKey={secret_key}&pattern={pattern}
-`
+`http://api.cognism.io/api/v1/websocket?accessToken={access_token}&secretKey={secret_key}&pattern={pattern}`
 
 
 ### Query Parameters
@@ -2011,20 +2133,7 @@ api.Audit.create(audit_details)
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+
 ```
 
 What documents? Who can access what? Any other info on docs? 
