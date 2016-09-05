@@ -160,8 +160,9 @@ api.Company.find('cognism')
 ```
 
 ```shell
-$ curl http://api.cognism.io/api/v1/company/cognism \
-  -H "Authorization: Access Token"
+$ curl -v hhttp://api.cognism.io/api/v1/company/company_name
+  -H "X-API-AccessToken: access_token" 
+  -H "X-API-SecretKey: secret_key" 
 ```
 
 ```javascript
@@ -347,8 +348,9 @@ api.Company.find('cognism')
 ```
 
 ```shell
-$ curl http://api.cognism.io/api/v1/company/cognism \
-  -H "Authorization: Access Token"
+$ curl -v hhttp://api.cognism.io/api/v1/company/company_name ????
+  -H "X-API-AccessToken: access_token" 
+  -H "X-API-SecretKey: secret_key" 
 ```
 
 ```javascript
@@ -1114,20 +1116,7 @@ let kittens = api.kittens.get();
 
 
 ```json
-[
-  {
-    "date": "Tue, 23 Aug 2016 14:18:36 GMT",
-    "content-encoding": "gzip",
-    "x-content-type-options": "nosniff",
-    "x-permitted-cross-domain-policies": "master-only",
-    "x-frame-options": "DENY",
-    "request-time": "178ms",
-    "vary": "Accept-Encoding",
-    "content-length": "20",
-    "x-xss-protection": "1; mode=block",
-    "content-type": null
-  }
-]
+
 ```
 
 What documents? Who can access what? Any other info on docs? 
@@ -1621,8 +1610,9 @@ api.Company.find('cognism')
 ```
 
 ```shell
-$ curl http://api.cognism.io/api/v1/company/cognism \
-  -H "Authorization: Access Token"
+$ curl -v http://api.cognism.io/api/v1/company/company_name \
+  -H "X-API-AccessToken: access_token" 
+  -H "X-API-SecretKey: secret_key" 
 ```
 
 ```javascript
@@ -1714,11 +1704,18 @@ api.Audit.create(audit_details)
 ```
 
 ```shell
-
-  $ curl http://api.cognism.io/api/v1/audit/user?accessToken=0000-0000-0000 \
-  -d 'action=String' \
-  -d 'source=String' \
-  -d 'data=1' \
+  $ curl http://api.cognism.io/api/v1/subscription
+  -H "X-API-AccessToken: access_token" 
+  -H "X-API-SecretKey: secret_key" 
+  -H "Content-type: application/json" 
+  --request POST 
+  --data '{ "name": "test",
+            "active": false,
+            "pattern":       {"type": "310",
+                              "org": "IBM"},
+            "callback-http": {"method": "POST",
+                              "url": "myurl",
+                              "headers": ["title"]}}' 
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -1809,11 +1806,10 @@ api.Audit.create(audit_details)
 ```
 
 ```shell
-
-  $ curl http://api.cognism.io/api/v1/audit/user?accessToken=0000-0000-0000 \
-  -d 'action=String' \
-  -d 'source=String' \
-  -d 'data=1' \
+  $ curl http://api.cognism.io/api/v1/subscription/subscription_id
+  -H "X-API-AccessToken: access_token" 
+  -H "X-API-SecretKey: secret_key" 
+  --request DELETE 
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -1954,11 +1950,18 @@ api.Audit.create(audit_details)
 ```
 
 ```shell
-
-  $ curl http://api.cognism.io/api/v1/audit/user?accessToken=0000-0000-0000 \
-  -d 'action=String' \
-  -d 'source=String' \
-  -d 'data=1' \
+$ curl http://api.cognism.io/api/v1/subscription/subscription_id
+-H "X-API-AccessToken: access_token" 
+-H "X-API-SecretKey: secret_key" 
+-H "Content-type: application/json" 
+--request PUT 
+--data  '{"name": "test",
+          "active": false,
+          "pattern":       {"type": "310",
+                            "org": "IBM"},
+          "callback-http": {"method": "POST",
+                            "url": "http://myurl.com",
+                            "headers": ["best title"]}}' 
 ```
 
 > **RESPONSE EXAMPLE**  
