@@ -488,6 +488,14 @@ html, body {
       background-color: $aside-success-bg;
       text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
     }
+
+    &.tag {
+      background-color: #FFFFFF;
+      padding-top: 0em;
+      padding-bottom: 0em;
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+    }
   }
 
   aside:before {
@@ -627,4 +635,51 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// CUSTOM COGNISM
+////////////////////////////////////////////////////////////////////////////////
+
+.lbl-get, .lbl-post, .lbl-delete, .lbl-put {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  
+  padding: 2px;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-family: "Droid Sans", sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  
+  -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0.3) ;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.3) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.lbl-get {
+  background: #0f6ab4;
+  width: 25px;
+}
+
+.lbl-post {
+  width: 30px;
+  background: #10a54a;
+}
+
+.lbl-delete {
+  width: 42px;
+  background: #a41e22;
+}
+
+.lbl-put {
+  width: 25px;
+  background: #c5862b;
 }
