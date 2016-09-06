@@ -27,7 +27,7 @@ search: true
 
 The Cognism API is used to submit lead generation, lead enrichment and sales management requests. The API is built using RESTful endpoints and standard HTTP verbs.
 
-For authentification API tokens are used which can be obtained from your Cognism Customer Success Manager.
+For authentication API tokens are used which can be obtained from the Cognism Customer Success Manager.
 
 Most API responses return JSON, with the exception of documents, which can be returned in text format, or events, which are also available as a CSV file. All POST requests require a JSON input. 
 
@@ -70,6 +70,6 @@ let api = kittn.authorize('0000-0000-0000');
 
 > Make sure to replace `your_access_token` and `your_secret_key` with API keys obtained from Cognism.
 
-Cognism uses API keys to allow access to the API's. There are two types of keys: Access Token and Secret Key, which are one time generated tokens privded by Cognism. Most API's will work using the Access Token, however, some will require both keys. If you do not have your Access Token or Secret Key, please as your Customer Success Manager.
+Cognism uses API tokens and keys to allow access to the API's. Cognism provides one time generated access tokens and secret keys, which can be acquired from your Customer Success Manager. Most API's will work using the access token, however, some will require the secret key as well.
 
-The documentation below defines these keys as either accessTokens and secretKeys or X-API-AccessTokens and X-API-SecretKeys. The keys themselves are the same, but the latter are used solely in API headers when the first are added as input parameters in certain GET requests. The documentation will provide information on the exact authentification method used for each API.
+The documentation below defines the authentication keys as either accessTokens and secretKeys or X-API-AccessTokens and X-API-SecretKeys. The values themselves are the same, but the latter are used solely in API headers when the first are added as input parameters in certain GET requests. The documentation will provide information on the exact authentication method used for each API.
