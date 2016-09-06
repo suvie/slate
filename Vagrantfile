@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
-  config.vm.network :forwarded_port, guest: 1024, host: 1024
+  config.vm.network :forwarded_port, guest: 80, host: 80
 
   config.vm.provision "bootstrap",
     type: "shell",

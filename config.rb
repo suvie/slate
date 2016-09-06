@@ -41,5 +41,5 @@ end
 
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below
-set :port, 1024
+set :port, 80
 #4567

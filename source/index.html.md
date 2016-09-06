@@ -39,15 +39,26 @@ Examples for language bindings are provided in Shell, Ruby, Python and Javascrip
 > To authorize, use this code:
 
 ```ruby
-require 'kittn'
+require 'cognism'
 
-api = Kittn::APIClient.authorize!('0000-0000-0000')
+api = Cognism::APIClient.authorize!('your_access_token')
+
+OR
+
+Cognism.configure do |config|
+  config.api_key = 'your_access_token'
+end
 ```
 
 ```python
-import kittn
+import cognism
 
-api = kittn.authorize('0000-0000-0000')
+api = cognism.authorize('your_access_token')
+
+OR
+
+from cognism import Api
+api = Api("your_access_token")
 ```
 
 ```shell
@@ -63,9 +74,9 @@ curl 'http://api_endpoint_here?
 ```
 
 ```javascript
-const kittn = require('kittn');
+const cognism = require('cognism');
 
-let api = kittn.authorize('0000-0000-0000');
+let api = cognism.authorize('your_access_token');
 ```
 
 > Make sure to replace `your_access_token` and `your_secret_key` with API keys obtained from Cognism.
