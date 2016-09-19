@@ -61,10 +61,11 @@ $ curl -v http://api.cognism.io/api/v1/company/IBM
 ```
 
 ```javascript
-const comp = require('comp');
+url = "http://api.cognism.io/api/v1/company/IBM";
 
-let api = comp.authorize('your_access_token');
-let company = api.company.get('IBM');
+xmlHttp.open( "GET", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -111,4 +112,4 @@ Parameter | Description
 --------- | ----------- 
 name | **required** <br> Name of the company being searched.
 X-API-AccessToken | **required** <br> Access Token
-X-API-AccessToken | **optional** <br> Secret Key
+X-API-SecretKey | **optional** <br> Secret Key

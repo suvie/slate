@@ -151,14 +151,21 @@ person = api.Person.find(firstName,
 $ curl -v 'http://api.cognism.io/api/v1/person?
             firstName=Mary&
             lastName=Mitchell&
-            company=IBM
+            company=IBM'
 
   -H "X-API-AccessToken: access_token" 
   -H "X-API-SecretKey: secret_key"
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/person?
+            firstName=Mary&
+            lastName=Mitchell&
+            company=IBM";
 
+xmlHttp.open( "GET", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -247,3 +254,56 @@ lastName | **optional** <br> Last name of person to search.
 company | **optional** <br> The company the person works at.
 X-API -AccessToken | **required** <br> Access Token
 X-API-SecretKey | **optional** <br> Secret Key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##CRM Sync (Web Hook)
+
+This API let's you clean your CRM data by sending details about people and getting the latest Cognism entry for them. Here you can input a list of people and receive a fresh set of data on those individuals.
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Enrichment
+
+
+This API let's you get enriched information about a person where the input requires only partials details about the individual.
+
+
+### Query Parameters
+
+
+Parameter | Description
+--------- | ----------- 
+partialDetails | **required** <br> Partial information about the person.
+firstName | **required** <br> First name of person to search.
+lastName | **required** <br> Last name of person to search.
+company | **required** <br> The company the person works at.
+city | **optional** <br> The city the person works at.
+country | **optional** <br> The country the person is based at.
+jobTitle | **optional** <br> The person's job title.
+email | **optional** <br> The person's email address.
+X-API -AccessToken | **required** <br> Access Token
+X-API-SecretKey | **optional** <br> Secret Key   
+

@@ -1,6 +1,6 @@
 #Websocket
 
-In the event of a Sales Trigger, you can set up a websocket trigger that will send information about the event to your system. As for the subscription object, websockets require a pattern that defines the conditions for the trigger.
+In the event of a Sales Trigger or a News Item, you can set up a websocket trigger that will send information about the event to your system. As for the subscription object, websockets require a pattern that defines the conditions for the trigger.
 
 
 
@@ -32,7 +32,14 @@ $ curl -v 'http://api.cognism.io/api/v1/websocket?
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/websocket?
+                accessToken=your_access_token& 
+                secretKey=your_secret_key&
+                pattern={pattern}";
 
+xmlHttp.open( "GET", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
 ```
 
 This API allows you to create a websocket trigger, which, in the event of a Sales Trigger, will send information about the event to your system. The conditions for the trigger can be defined in the pattern. The authentication tokens are required for the X-API headers, while they can also be added into the GET URL.
@@ -76,6 +83,13 @@ api.Websocket.create({session})
 ```shell
 $ curl -v http://api.cognism.io/api/v1/websocket/session?
           session={session}
+```
+
+```javascript
+url = "http://api.cognism.io/api/v1/websocket/session?
+          session={session}";
+
+xmlHttp.open( "POST", url );
 ```
 
 

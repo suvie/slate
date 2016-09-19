@@ -74,7 +74,11 @@ $ curl -v http://api.cognism.io/api/v1/subscription
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/subscription";
 
+xmlHttp.open( "GET", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -176,6 +180,22 @@ api.Subscription.create({
                               "headers": ["title"]}}' 
 ```
 
+```javascript
+url = "http://api.cognism.io/api/v1/subscription";
+data = '{ "name": "mysubscriptionname",
+            "active": false,
+            "pattern":       {"type": "310",
+                              "org": "IBM"},
+            "callback-http": {"method": "POST",
+                              "url": "myurl",
+                              "headers": ["title"]}}';
+
+xmlHttp.open( "POST", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
+xmlHttp.setRequestHeader('Content-type','application/json');
+```
+
 > **RESPONSE EXAMPLE**  
 
 
@@ -274,10 +294,20 @@ api.Audit.create(audit_details)
   --request DELETE 
 ```
 
+```javascript
+url = "http://api.cognism.io/api/v1/subscription
+                              /your_subscription_id";
+
+xmlHttp.open( "DELETE", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
+```
+
+
 > **RESPONSE EXAMPLE**  
 
 
-```shell
+```txt
 no content
 ```
 
@@ -332,7 +362,12 @@ $ curl -v http://api.cognism.io/api/v1/subscription
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/subscription
+                               /your_subscription_id";
 
+xmlHttp.open( "GET", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -427,10 +462,27 @@ $ curl http://api.cognism.io/api/v1/subscription
                             "headers": ["best title"]}}' 
 ```
 
+```javascript
+url = "http://api.cognism.io/api/v1/subscription
+                            /your_subscription_id";
+data = '{ "name": "mymodifiedname",
+            "active": false,
+            "pattern":       {"type": "310",
+                              "org": "IBM"},
+            "callback-http": {"method": "POST",
+                              "url": "myurl",
+                              "headers": ["title"]}}';
+
+xmlHttp.open( "PUT", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
+xmlHttp.setRequestHeader('Content-type','application/json');
+```
+
 > **RESPONSE EXAMPLE**  
 
 
-```shell
+```txt
 no content
 ```
 

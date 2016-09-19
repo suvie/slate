@@ -138,7 +138,16 @@ $ curl -v 'http://api.cognism.io/api/v1/events/stream?
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/events/stream?
+            dateFrom=20.04.2016&
+            dateTo=20.06.2016&
+            rule=org%3DIBM%3B&
+            page=5&
+            count=10";
 
+xmlHttp.open( "GET", url );
+xmlHttp.setRequestHeader('X-API-AccessToken','your_access_token');
+xmlHttp.setRequestHeader('X-API-SecretKey','your_secret_key');
 ```
 
 > **RESPONSE EXAMPLE**  
@@ -275,13 +284,22 @@ $ curl -v 'http://api.cognism.io/api/v1/events/stream/csv?
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/events/stream/csv?
+            dateFrom=20.04.2016&
+            dateTo=20.06.2016&
+            rule=org%3DIBM%3B&
+            page=5&
+            count=10&
+            accessToken=your_access_token& 
+            secretKey=your_secret_key";
 
+xmlHttp.open( "GET", url );
 ```
 
 > **RESPONSE EXAMPLE**  
 
 
-```shell
+```txt
 CSV File
 
 Data returned with rule org=IBM
@@ -369,6 +387,26 @@ api.Event.create("your_access_token", "your_secret_key", {
                         }]
             })
 ```
+
+```javascript
+url = "http://api.cognism.io/api/v1/events/stream/search?
+            accessToken=your_access_token& 
+            secretKey=your_secret_key";
+data = '{ "dateFrom": "20.04.2016",
+            "dateTo": "20.05.2016",
+            "page": 5,
+            "count": 10,
+            "pipeline": [{"name": "string",
+                          "operator": "eq",
+                          "values": ["string"],
+                          "phase": "match"
+                        }]
+          }';
+
+xmlHttp.open( "POST", url );
+xmlHttp.setRequestHeader('Content-type','application/json');
+```
+
 
 ```shell
 $ curl 'http://api.cognism.io/api/v1/events/stream/search?

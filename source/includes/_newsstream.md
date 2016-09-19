@@ -1,6 +1,6 @@
-#Documents v1
+#News Stream
 
-##Document Object
+##News Stream Object
 
 ```json
 {
@@ -56,7 +56,7 @@
     }
 ```
 
-The document object returns information about an online document or an article. The object includes metadata about the article such as its author, creation date and source, and will also provide key entities that are mentioned in the article, such as quotes, people and organizations.
+The news stream object returns information about an online document or an article. The object includes metadata about the article such as its author, creation date and source, and will also provide key entities that are mentioned in the article, such as quotes, people and organizations.
 
 
 Parameter | Description
@@ -117,6 +117,16 @@ $ curl -v 'http://api.cognism.io/api/v1/documents/json?
 ```
 
 ```javascript
+
+url = "http://api.cognism.io/api/v1/documents/json?
+        keywords=marketing&
+        source=Financial%20Times&
+        dateFrom=20.04.2016&
+        dateTo=20.06.2016&
+        accessToken=your_access_token&
+        secretKey=your_secret_key";
+
+xmlHttp.open( "GET", url );
 
 ```
 
@@ -301,13 +311,22 @@ $ curl -v 'http://api.cognism.io/api/v1/documents/txt?
 ```
 
 ```javascript
+url = "http://api.cognism.io/api/v1/documents/txt?
+              keywords=marketing&
+              source=Financial%20Times&
+              dateFrom=20.04.2016&
+              dateTo=20.06.2016&
+              accessToken=your_access_token& 
+              secretKey=your_secret_key";
+
+xmlHttp.open( "GET", url );
 
 ```
 
 > **RESPONSE EXAMPLE**  
 
 
-```shell
+```txt
 Cognism Data Report
 
 Query Parameters:
@@ -385,100 +404,6 @@ secretKey | **optional** <br> Secret Key
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#Documents v2
-
-##Document Object
-
-```shell
-Cognism Data Report
-
-Query Parameters:
-  Keywords = ORGANIZATION:IBM
-  Search fields = body
-  Exclusions = None
-  Date From = 01.01.2016
-  Date To = 20.08.2016
-  Annotation = All
-  Source = PR Newswire
-
-
-[1] 6mm x 6mm, Longsys Technology launches the worlds 
-smallest IoT WiFi SiP module
-EID: 8667390 | UID: 1057574 | Date: Mon Jan 04 14:00:00 
-UTC 2016 | Author: Some(Longsys Technology Co., Ltd.) | 
-Source: PR Newswire
-URL: Some(http://www.prnewswire.com/news-releases/36411
-0661.html)
-
-Abstract:
-<p>LAS VEGAS, Jan. 4, 2016 /PRNewswire/ -- Longsys 
-  Technology, the leading solutions provider of 
-  Internet of Things (IoT), just announced the worlds 
-  smallest IoT WiFi Silicon-in-package (SiP) module, 
-  LTP0201.</p>
-
-Annotations:
-  subject => PDT
-  industry => CPR
-
-Photos:
-  http://photos.prnewswire.com/prnh/20151228/318161
-  http://photos.prnewswire.com/prnh/20151228/318162
-
-Named Entities:
-  EMAIL=iotsales@longsys.com (5.0)
-  EMAIL=xiaogang.li@longsys.com (5.0)
-  LOCATION=Las Vegas Blvd. (7.0)
-  LOCATION=LAS VEGAS (4.0)
-  ORGANIZATION=IBM (4.0)
-  ORGANIZATION=AES (1.0)
-  PERSON=Xiaogang Li (2.0)
-    Ref: ORGANIZATION=Las Vegas (0.0)
-    Ref: PHONE=+1 (10.0)
-    Ref: EMAIL=iotsales@longsys.com (5.0)
-  PHONE=+1 (10.0)
-  QUOTE=In 5 years, more than 60 % IoT and wearable 
-  products will incorporate SiP modules because of its 
-  mini size and more consistent RF performance (1.0)
-    Ref: PERSON=Dave Pang (7.0)
-      Ref: TITLE=General Manager (1.0)
-        Ref: COGNISM-ID = General Manager => id=73b52b17-
-        8d63-435c-b121-c84c6ad9e827
-      Ref: ORGANIZATION=Longsys Technology Co., Ltd. (6.0)
-      Ref: PHONE=+1 (10.0)
-      Ref: EMAIL=iotsales@longsys.com (5.0)
-```
-
-The document object returns information about an online document or an article. The object includes metadata about the article such as its author, creation date and source, and will also provide key entities that are mentioned in the article, such as quotes, people and organizations.
-
-
-Parameter | Description
---------- | ----------- 
-Query Parameters | Query parameters set for search.
-Abstract | Opening paragraph of article.
-Annotations | Article metadata such as the subject or industry the article is about.
-Photos | Photo links found in article.
-Names Entities | Details of companies, people and locations mentioned in the article.
-
-
-
-
-
-
-
-
 ##Search Documents by Entities
 
 ```ruby
@@ -527,12 +452,23 @@ $ curl -v 'http://api.cognism.io/api/v2/documents/search?
 
 
 ```javascript
+url = "http://api.cognism.io/api/v2/documents/search?
+              dateFrom=20.04.2016&
+              dateTo=20.06.2016&
+              source=Financial%20Times&
+              aboutness=4&
+              page=5&
+              count=10&
+              accessToken=your_access_token& 
+              secretKey=your_secret_key";
+
+xmlHttp.open( "GET", url );
 ```
 
 > **RESPONSE EXAMPLE**  
 
 
-```shell
+```txt
 Cognism Data Report
 
 Query Parameters:

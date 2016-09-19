@@ -13,11 +13,12 @@ toc_footers:
 
 includes:
   - company
-  - documents
+  - newsstream
   - events
   - person
   - subscription
   - websockets
+  - relationships
   - errors
 
 search: true
